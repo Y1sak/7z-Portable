@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Get Lastest 7z
       run: |
-        wget -O ./7z.exe -qi "http://sourceforge.net/projects/sevenzip/files/latest/download?source=files"
+        curl -fsSL "http://sourceforge.net/projects/sevenzip/files/latest/download?source=files" -o "./7z.exe" -O
     - name: Extract 7z
       run: |
         7z x ./7z.exe
