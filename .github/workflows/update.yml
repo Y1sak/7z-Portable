@@ -1,0 +1,19 @@
+name: update
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+	steps:
+	- uses: actions/checkout@v3
+	- name: Get Lastest 7z
+      run: |
+        wget -O ./7z.exe -qi "http://sourceforge.net/projects/sevenzip/files/latest/download?source=files"
+	- name: Extract 7z
+      run: |
+        7z x ./7z.exe
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: 7z
+        path: "./7z/7z.exe"
